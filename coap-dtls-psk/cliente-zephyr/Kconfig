@@ -1,0 +1,19 @@
+mainmenu "Cliente CoAP sobre DTLS com PSK"
+
+config CLIENTE_SERVIDOR_IP
+	string "Endereço IPv4 do servidor"
+	default "127.0.0.1"
+
+config CLIENTE_SERVIDOR_PORTA
+	int "Porta do servidor"
+	default 5684
+
+config CLIENTE_PSK_IDENTIDADE
+	string "Identidade PSK do device"
+	default "estacao-01"
+
+config CLIENTE_PSK_CHAVE
+	string "Chave PSK do device (texto)"
+	default "segredo-da-estacao-01"
+
+source "Kconfig.zephyr"
