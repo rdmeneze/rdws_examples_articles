@@ -1,6 +1,6 @@
 # Exemplo: CoAP sobre DTLS com PSK
 
-Acompanha o artigo [01-coap-dtls-psk](../../artigos/01-coap-dtls-psk/rascunho.md).
+Acompanha o artigo [01-coap-dtls-psk](Colocar o link do artigo no embarcados).
 
 | Pasta | O que é | Estado |
 |---|---|---|
@@ -74,6 +74,6 @@ O servidor não manda alerta para chave errada: o cliente só vê o handshake ex
 
 ## Critério de pronto da pasta toda
 
-- `servidor/` aceita um POST com a identidade certa e recusa com a errada. ✅
-- `cliente-zephyr/` fecha o handshake com `servidor/` e recebe `2.04`. ✅ (`native_sim`)
+- `servidor/` aceita um POST com a identidade certa e recusa com a errada. 
+- `cliente-zephyr/` fecha o handshake com `servidor/` e recebe `2.04`.  (`native_sim`)
 - Cada snippet do artigo existe, igual, num destes arquivos.
