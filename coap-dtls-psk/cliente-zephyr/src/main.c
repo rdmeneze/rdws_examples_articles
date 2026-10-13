@@ -130,9 +130,9 @@ static int conectar(void)
 	mbedtls_ssl_config_defaults(&conf, MBEDTLS_SSL_IS_CLIENT, MBEDTLS_SSL_TRANSPORT_DATAGRAM,
 				    MBEDTLS_SSL_PRESET_DEFAULT);
 	mbedtls_ssl_conf_ciphersuites(&conf, ciphersuites);
-	/* Espera 1, 2, 4, 8 e 16 s entre retransmissões do handshake antes de desistir (o
-	 * padrão vai até 60 s, e a falha leva mais de 2 min). Chave errada não gera alerta do
-	 * servidor: o sintoma é este timeout, -0x6800.
+	/* Limita os intervalos de retransmissão do handshake a uma faixa de 1 a 16 s.
+	 * Nos testes deste exemplo, o timeout aparece como -0x6800. Com uma chave incorreta,
+	 * o servidor de teste descarta o registro inválido sem enviar alerta.
 	 */
 	mbedtls_ssl_conf_handshake_timeout(&conf, 1000, 16000);
 	mbedtls_ssl_conf_psk(&conf, (const unsigned char *)chave, strlen(chave),

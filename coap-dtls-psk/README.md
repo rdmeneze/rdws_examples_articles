@@ -74,6 +74,6 @@ O servidor não manda alerta para chave errada: o cliente só vê o handshake ex
 
 ## Critério de pronto da pasta toda
 
-- `servidor/` aceita um POST com a identidade certa e recusa com a errada. 
-- `cliente-zephyr/` fecha o handshake com `servidor/` e recebe `2.04`.  (`native_sim`)
+- `servidor/` aceita um POST com a identidade certa e recusa com a errada.
+- `cliente-zephyr/` fecha o handshake com `servidor/` e recebe `2.04`. Testado em `native_sim`.
 - Cada snippet do artigo existe, igual, num destes arquivos.
