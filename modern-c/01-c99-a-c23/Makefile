@@ -16,7 +16,7 @@ STD_C23 ?= c2x
 HAVE_MEMSET_EXPLICIT := $(shell printf '\043include <string.h>\nint main(void){char b[1];memset_explicit(b,0,1);return b[0];}\n' \
 	| $(CC) -std=$(STD_C23) -x c - -o /dev/null 2>/dev/null && echo -DHAVE_MEMSET_EXPLICIT)
 
-.PHONY: all c99 c11 c23 run clean
+.PHONY: all c99 c11 c23 run teste clean
 
 all: c99 c11 c23
 
@@ -38,6 +38,9 @@ $(BUILD)/c23/%: c23/%.c
 
 run: all
 	@for b in $(C99_BIN) $(C11_BIN) $(C23_BIN); do echo "== $$b"; $$b || exit 1; done
+
+teste:
+	scripts/teste.sh
 
 clean:
 	rm -rf $(BUILD)

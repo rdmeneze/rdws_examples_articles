@@ -4,8 +4,11 @@
 #include <stdatomic.h>
 #include <stdio.h>
 
+/* SEM_ASSERT_LOCK_FREE só existe para o teste ver o código gerado no Cortex-M0. */
+#ifndef SEM_ASSERT_LOCK_FREE
 _Static_assert(ATOMIC_INT_LOCK_FREE == 2,
                "atomic_int precisa ser lock-free para uso em ISR");
+#endif
 
 static atomic_uint rx_count;
 

@@ -9,8 +9,8 @@ que o recurso faz. Os trechos citados no artigo são idênticos aos destes arqui
 | `c99/` | `-std=c99` | inicializadores designados (structs e vetores), literais compostos, flexible array member, macros variádicas, `restrict`, `stdint.h`/`inttypes.h` | pronto |
 | `c11/` | `-std=c11` | `_Static_assert` de layout, `alignas`, structs e unions anônimas, atomics, `_Generic`, `_Noreturn` | pronto |
 | `c23/` | `-std=c2x` (ou `c23`) | `bool` e `nullptr`, atributos, literais binários e enums com tipo fixo, `constexpr`/`typeof`/`auto`/`= {}`, `__VA_OPT__` e `#embed`, `ckd_add` e `memset_explicit`, `stdbit.h` e `unreachable` | pronto |
-| `erros/` | vários | casos que devem falhar: `LOG` sem argumentos no C99, VLA com `-Wvla`, tabela de sensores incompleta, `[[nodiscard]]` ignorado | a fazer |
-| `scripts/` | | `teste.sh`: compila tudo, roda e confere que os casos de erro falham | a fazer |
+| `erros/` | vários | casos que devem falhar: `LOG` sem argumentos no C99, VLA com `-Werror=vla`, tabela de sensores incompleta, `[[nodiscard]]` ignorado, `void f();` chamado com argumento no C23 | pronto |
+| `scripts/` | | `teste.sh`: compila e roda tudo, confere que os casos de `erros/` falham com a mensagem esperada e compara os atomics no Cortex-M0 e no M4 | pronto |
 
 ## Build
 
@@ -29,6 +29,7 @@ sem avisos com `-Wall -Wextra -pedantic`.
 ```sh
 make          # compila c99/, c11/ e c23/
 make run      # compila e roda todos os exemplos
+make teste    # roda scripts/teste.sh
 make clean
 ```
 
@@ -80,4 +81,42 @@ O `c23/certs/ca.der` é um certificado autoassinado gerado só para o exemplo do
 chave privada foi descartada.
 
 No x86-64, `ATOMIC_INT_LOCK_FREE` vale 2. Em um Cortex-M0 vale 1, e o `_Static_assert` de
-`c11/atomics.c` falha na compilação; o alvo `arm`, na etapa 3, mostra isso.
+`c11/atomics.c` falha na compilação; o teste abaixo mostra isso.
+
+## Teste
+
+```sh
+scripts/teste.sh
+```
+
+Além de compilar e rodar os exemplos, o script confere que cada caso de `erros/` falha pelo
+motivo certo (procura a mensagem do compilador) e, se encontrar um GCC para ARM
+(`arm-none-eabi-gcc` no `PATH`, o do Zephyr SDK em `~/zephyr-sdk-*` ou o indicado em
+`ARM_CC`), compila `c11/atomics.c` para Cortex-M0 e Cortex-M4. Sem compilador ARM, essa parte
+é pulada.
+
+Saída esperada (GCC 13 no host, GCC 14 do Zephyr SDK para ARM):
+
+```
+== exemplos (make run)
+  ok: todos compilam e rodam
+== casos que devem falhar (erros/)
+  ok: LOG sem argumentos no C99
+  ok: VLA com -Werror=vla
+  ok: tabela de sensores incompleta
+  ok: tabela de sensores completa
+  ok: [[nodiscard]] ignorado com -Werror=unused-result
+  ok: void f(); chamado com argumento no C17
+  ok: void f(); chamado com argumento no C23
+== atomics no Cortex-M0 e no Cortex-M4
+  usando arm-zephyr-eabi-gcc (Zephyr SDK 1.0.1) 14.3.0
+  ok: Cortex-M4: ATOMIC_INT_LOCK_FREE == 2
+  ok: Cortex-M0: _Static_assert falha
+  ok: cortex-m4: uart_isr usa ldrex
+  ok: cortex-m0: uart_isr usa __atomic_fetch_add_4
+
+tudo certo
+```
+
+As mensagens procuradas são as do GCC (testado no 13 e no 15). Com o Clang, algumas podem
+ter outro texto e o caso aparece como falha mesmo tendo falhado pelo motivo certo.
