@@ -9,7 +9,7 @@ Embarcados quando for publicado). Mede, recurso por recurso, o que cada toolchai
 | `scripts/matriz.sh` | Testa todos os recursos em um compilador e imprime uma linha por recurso |
 | `scripts/rodar_tudo.sh` | Roda a matriz em todos os toolchains e gera `resultados/matriz.xlsx` |
 | `scripts/tabela.py` | Junta os resultados em uma planilha: aba Matriz (cores por resultado e total de "ok" por toolchain) e aba Legenda (significados e método) |
-| `compat/` | `compat_c23.h`: usa o recurso do C23 quando existe e um substituto quando não existe (`nullptr`, `bool`, `static_assert`, `ckd_add`, `memset_explicit`); `exemplo.c` usa o cabeçalho |
+| `compat/` | `compat_c23.h`: usa o recurso do C23 quando existe e um substituto quando não existe (`nullptr`, `bool`, `static_assert`, `ckd_add`, `memset_explicit`); `exemplo.c` usa o cabeçalho; `overflow.c` é o exemplo da abertura do artigo (`__builtin_add_overflow` e `ckd_add`) |
 | `scripts/teste_compat.sh` | Compila e roda `compat/exemplo.c` com cada padrão de C11 a C23 que o compilador aceitar |
 | `scripts/figura.py` | Gera `resultados/matriz.png`, a figura do artigo: só os recursos em que os toolchains diferem, com colunas vizinhas idênticas agrupadas (precisa do `matplotlib`) |
 | `resultados/` | A última matriz gerada (outubro de 2026): `matriz.xlsx` e os `.tsv` de cada toolchain |

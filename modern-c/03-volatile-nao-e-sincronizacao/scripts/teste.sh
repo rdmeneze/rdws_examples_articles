@@ -111,6 +111,12 @@ else
         falha "baixar o buffer do Neves"
     fi
 
+    if "$ARM_CC" -std=c11 -O2 -Wall -Wextra -mcpu=cortex-m4 -mthumb -c arm/abertura.c -o /dev/null; then
+        ok "cortex-m4: o exemplo da abertura compila"
+    else
+        falha "cortex-m4: exemplo da abertura"
+    fi
+
     r="$(asm cortex-m0 arm/ticks64.c | corpo le_ticks | grep -c '^ldr$')"
     [ "$r" -ge 3 ] && ok "cortex-m0: volatile uint64_t lido com dois LDR" || falha "cortex-m0: leitura de 64 bits ($r ldr)"
     r="$(asm cortex-m4 arm/ticks64.c)"

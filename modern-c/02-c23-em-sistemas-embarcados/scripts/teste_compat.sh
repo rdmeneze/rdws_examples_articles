@@ -18,4 +18,10 @@ for std in c11 c17 c2x c23; do
         cat "$tmp/log"; echo "-std=$std: FALHOU"; falhas=$((falhas + 1))
     fi
 done
+# A abertura do artigo: o builtin sempre; o ckd_add só onde houver stdckdint.h.
+if "$CC" -std=c2x -Wall -Wextra -Werror -c overflow.c -o "$tmp/o.o" 2> "$tmp/log"; then
+    echo "overflow.c: $(nm "$tmp/o.o" | grep -o 'soma_[a-z0-9]*' | sort | tr '\n' ' ')"
+else
+    cat "$tmp/log"; echo "overflow.c: FALHOU"; falhas=$((falhas + 1))
+fi
 exit $falhas
