@@ -1,0 +1,26 @@
+fedora:44	_compilador	GCC 16.2.1
+fedora:44	_libc	glibc 2.43
+fedora:44	_std	-std=c23 (202311L)
+fedora:44	01-bool	ok
+fedora:44	02-nullptr	ok
+fedora:44	03-atributos	ok
+fedora:44	04-literais-binarios	ok
+fedora:44	05-separadores	ok
+fedora:44	06-enum-tipo-fixo	ok
+fedora:44	07-constexpr	ok
+fedora:44	08-typeof	ok
+fedora:44	09-auto	ok
+fedora:44	10-static-assert	ok
+fedora:44	11-init-vazio	ok
+fedora:44	12-va-opt	ok
+fedora:44	13-embed	ok
+fedora:44	14-bitint	ok
+fedora:44	15-elifdef	ok
+fedora:44	16-unreachable	ok
+fedora:44	17-stdckdint	ok
+fedora:44	18-stdbit	ok
+fedora:44	19-memset-explicit	ok
+fedora:44	20-strdup	ok
+fedora:44	21-memccpy	ok
+fedora:44	22-timegm	ok
+fedora:44	23-printf-b	ok

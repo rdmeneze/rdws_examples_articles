@@ -1,0 +1,26 @@
+arm-none-eabi 14.3.rel1	_compilador	GCC 14.3.1
+arm-none-eabi 14.3.rel1	_libc	newlib 4.5.0
+arm-none-eabi 14.3.rel1	_std	-std=c23 (202000L)
+arm-none-eabi 14.3.rel1	01-bool	ok
+arm-none-eabi 14.3.rel1	02-nullptr	ok
+arm-none-eabi 14.3.rel1	03-atributos	ok
+arm-none-eabi 14.3.rel1	04-literais-binarios	ok
+arm-none-eabi 14.3.rel1	05-separadores	ok
+arm-none-eabi 14.3.rel1	06-enum-tipo-fixo	ok
+arm-none-eabi 14.3.rel1	07-constexpr	ok
+arm-none-eabi 14.3.rel1	08-typeof	ok
+arm-none-eabi 14.3.rel1	09-auto	ok
+arm-none-eabi 14.3.rel1	10-static-assert	ok
+arm-none-eabi 14.3.rel1	11-init-vazio	ok
+arm-none-eabi 14.3.rel1	12-va-opt	ok
+arm-none-eabi 14.3.rel1	13-embed	não
+arm-none-eabi 14.3.rel1	14-bitint	não
+arm-none-eabi 14.3.rel1	15-elifdef	ok
+arm-none-eabi 14.3.rel1	16-unreachable	ok
+arm-none-eabi 14.3.rel1	17-stdckdint	ok
+arm-none-eabi 14.3.rel1	18-stdbit	não
+arm-none-eabi 14.3.rel1	19-memset-explicit	não
+arm-none-eabi 14.3.rel1	20-strdup	só gnu
+arm-none-eabi 14.3.rel1	21-memccpy	só gnu
+arm-none-eabi 14.3.rel1	22-timegm	não
+arm-none-eabi 14.3.rel1	23-printf-b	n/t

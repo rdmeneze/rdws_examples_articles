@@ -1,0 +1,26 @@
+gcc:13	_compilador	GCC 13.5.0
+gcc:13	_libc	glibc 2.36
+gcc:13	_std	-std=c2x (202000L)
+gcc:13	01-bool	ok
+gcc:13	02-nullptr	ok
+gcc:13	03-atributos	ok
+gcc:13	04-literais-binarios	ok
+gcc:13	05-separadores	ok
+gcc:13	06-enum-tipo-fixo	ok
+gcc:13	07-constexpr	ok
+gcc:13	08-typeof	ok
+gcc:13	09-auto	ok
+gcc:13	10-static-assert	ok
+gcc:13	11-init-vazio	ok
+gcc:13	12-va-opt	ok
+gcc:13	13-embed	não
+gcc:13	14-bitint	não
+gcc:13	15-elifdef	ok
+gcc:13	16-unreachable	ok
+gcc:13	17-stdckdint	não
+gcc:13	18-stdbit	não
+gcc:13	19-memset-explicit	não
+gcc:13	20-strdup	ok
+gcc:13	21-memccpy	ok
+gcc:13	22-timegm	ok
+gcc:13	23-printf-b	ok

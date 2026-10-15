@@ -1,0 +1,26 @@
+clang:20	_compilador	Clang 20.1.8
+clang:20	_libc	glibc 2.36
+clang:20	_std	-std=c23 (202311L)
+clang:20	01-bool	ok
+clang:20	02-nullptr	ok
+clang:20	03-atributos	ok
+clang:20	04-literais-binarios	ok
+clang:20	05-separadores	ok
+clang:20	06-enum-tipo-fixo	ok
+clang:20	07-constexpr	ok
+clang:20	08-typeof	ok
+clang:20	09-auto	ok
+clang:20	10-static-assert	ok
+clang:20	11-init-vazio	ok
+clang:20	12-va-opt	ok
+clang:20	13-embed	ok
+clang:20	14-bitint	ok
+clang:20	15-elifdef	ok
+clang:20	16-unreachable	ok
+clang:20	17-stdckdint	ok
+clang:20	18-stdbit	não
+clang:20	19-memset-explicit	não
+clang:20	20-strdup	ok
+clang:20	21-memccpy	ok
+clang:20	22-timegm	ok
+clang:20	23-printf-b	ok

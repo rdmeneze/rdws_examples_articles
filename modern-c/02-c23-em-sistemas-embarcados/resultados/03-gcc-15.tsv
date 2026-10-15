@@ -1,0 +1,26 @@
+gcc:15	_compilador	GCC 15.3.0
+gcc:15	_libc	glibc 2.41
+gcc:15	_std	-std=c23 (202311L)
+gcc:15	01-bool	ok
+gcc:15	02-nullptr	ok
+gcc:15	03-atributos	ok
+gcc:15	04-literais-binarios	ok
+gcc:15	05-separadores	ok
+gcc:15	06-enum-tipo-fixo	ok
+gcc:15	07-constexpr	ok
+gcc:15	08-typeof	ok
+gcc:15	09-auto	ok
+gcc:15	10-static-assert	ok
+gcc:15	11-init-vazio	ok
+gcc:15	12-va-opt	ok
+gcc:15	13-embed	ok
+gcc:15	14-bitint	ok
+gcc:15	15-elifdef	ok
+gcc:15	16-unreachable	ok
+gcc:15	17-stdckdint	ok
+gcc:15	18-stdbit	ok
+gcc:15	19-memset-explicit	não
+gcc:15	20-strdup	ok
+gcc:15	21-memccpy	ok
+gcc:15	22-timegm	ok
+gcc:15	23-printf-b	ok

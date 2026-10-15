@@ -1,0 +1,26 @@
+gcc:16	_compilador	GCC 16.2.0
+gcc:16	_libc	glibc 2.41
+gcc:16	_std	-std=c23 (202311L)
+gcc:16	01-bool	ok
+gcc:16	02-nullptr	ok
+gcc:16	03-atributos	ok
+gcc:16	04-literais-binarios	ok
+gcc:16	05-separadores	ok
+gcc:16	06-enum-tipo-fixo	ok
+gcc:16	07-constexpr	ok
+gcc:16	08-typeof	ok
+gcc:16	09-auto	ok
+gcc:16	10-static-assert	ok
+gcc:16	11-init-vazio	ok
+gcc:16	12-va-opt	ok
+gcc:16	13-embed	ok
+gcc:16	14-bitint	ok
+gcc:16	15-elifdef	ok
+gcc:16	16-unreachable	ok
+gcc:16	17-stdckdint	ok
+gcc:16	18-stdbit	ok
+gcc:16	19-memset-explicit	não
+gcc:16	20-strdup	ok
+gcc:16	21-memccpy	ok
+gcc:16	22-timegm	ok
+gcc:16	23-printf-b	ok

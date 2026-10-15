@@ -1,0 +1,26 @@
+clang:21	_compilador	Clang 21.1.8
+clang:21	_libc	glibc 2.41
+clang:21	_std	-std=c23 (202311L)
+clang:21	01-bool	ok
+clang:21	02-nullptr	ok
+clang:21	03-atributos	ok
+clang:21	04-literais-binarios	ok
+clang:21	05-separadores	ok
+clang:21	06-enum-tipo-fixo	ok
+clang:21	07-constexpr	ok
+clang:21	08-typeof	ok
+clang:21	09-auto	ok
+clang:21	10-static-assert	ok
+clang:21	11-init-vazio	ok
+clang:21	12-va-opt	ok
+clang:21	13-embed	ok
+clang:21	14-bitint	ok
+clang:21	15-elifdef	ok
+clang:21	16-unreachable	ok
+clang:21	17-stdckdint	ok
+clang:21	18-stdbit	ok
+clang:21	19-memset-explicit	não
+clang:21	20-strdup	ok
+clang:21	21-memccpy	ok
+clang:21	22-timegm	ok
+clang:21	23-printf-b	ok

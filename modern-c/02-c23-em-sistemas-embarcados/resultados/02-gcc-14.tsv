@@ -1,0 +1,26 @@
+gcc:14	_compilador	GCC 14.4.0
+gcc:14	_libc	glibc 2.41
+gcc:14	_std	-std=c23 (202000L)
+gcc:14	01-bool	ok
+gcc:14	02-nullptr	ok
+gcc:14	03-atributos	ok
+gcc:14	04-literais-binarios	ok
+gcc:14	05-separadores	ok
+gcc:14	06-enum-tipo-fixo	ok
+gcc:14	07-constexpr	ok
+gcc:14	08-typeof	ok
+gcc:14	09-auto	ok
+gcc:14	10-static-assert	ok
+gcc:14	11-init-vazio	ok
+gcc:14	12-va-opt	ok
+gcc:14	13-embed	não
+gcc:14	14-bitint	ok
+gcc:14	15-elifdef	ok
+gcc:14	16-unreachable	ok
+gcc:14	17-stdckdint	ok
+gcc:14	18-stdbit	ok
+gcc:14	19-memset-explicit	não
+gcc:14	20-strdup	ok
+gcc:14	21-memccpy	ok
+gcc:14	22-timegm	ok
+gcc:14	23-printf-b	ok

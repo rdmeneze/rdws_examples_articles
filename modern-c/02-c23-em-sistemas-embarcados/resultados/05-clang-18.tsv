@@ -1,0 +1,26 @@
+clang:18	_compilador	Clang 18.1.8
+clang:18	_libc	glibc 2.36
+clang:18	_std	-std=c23 (202311L)
+clang:18	01-bool	ok
+clang:18	02-nullptr	ok
+clang:18	03-atributos	ok
+clang:18	04-literais-binarios	não
+clang:18	05-separadores	ok
+clang:18	06-enum-tipo-fixo	ok
+clang:18	07-constexpr	não
+clang:18	08-typeof	ok
+clang:18	09-auto	ok
+clang:18	10-static-assert	ok
+clang:18	11-init-vazio	ok
+clang:18	12-va-opt	ok
+clang:18	13-embed	não
+clang:18	14-bitint	ok
+clang:18	15-elifdef	ok
+clang:18	16-unreachable	ok
+clang:18	17-stdckdint	ok
+clang:18	18-stdbit	não
+clang:18	19-memset-explicit	não
+clang:18	20-strdup	ok
+clang:18	21-memccpy	ok
+clang:18	22-timegm	ok
+clang:18	23-printf-b	ok

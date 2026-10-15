@@ -1,0 +1,26 @@
+clang:22	_compilador	Clang 22.1.8
+clang:22	_libc	glibc 2.41
+clang:22	_std	-std=c23 (202311L)
+clang:22	01-bool	ok
+clang:22	02-nullptr	ok
+clang:22	03-atributos	ok
+clang:22	04-literais-binarios	ok
+clang:22	05-separadores	ok
+clang:22	06-enum-tipo-fixo	ok
+clang:22	07-constexpr	ok
+clang:22	08-typeof	ok
+clang:22	09-auto	ok
+clang:22	10-static-assert	ok
+clang:22	11-init-vazio	ok
+clang:22	12-va-opt	ok
+clang:22	13-embed	ok
+clang:22	14-bitint	ok
+clang:22	15-elifdef	ok
+clang:22	16-unreachable	ok
+clang:22	17-stdckdint	ok
+clang:22	18-stdbit	ok
+clang:22	19-memset-explicit	não
+clang:22	20-strdup	ok
+clang:22	21-memccpy	ok
+clang:22	22-timegm	ok
+clang:22	23-printf-b	ok

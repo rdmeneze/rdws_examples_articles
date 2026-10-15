@@ -1,0 +1,26 @@
+clang:19	_compilador	Clang 19.1.7
+clang:19	_libc	glibc 2.36
+clang:19	_std	-std=c23 (202311L)
+clang:19	01-bool	ok
+clang:19	02-nullptr	ok
+clang:19	03-atributos	ok
+clang:19	04-literais-binarios	ok
+clang:19	05-separadores	ok
+clang:19	06-enum-tipo-fixo	ok
+clang:19	07-constexpr	ok
+clang:19	08-typeof	ok
+clang:19	09-auto	ok
+clang:19	10-static-assert	ok
+clang:19	11-init-vazio	ok
+clang:19	12-va-opt	ok
+clang:19	13-embed	ok
+clang:19	14-bitint	ok
+clang:19	15-elifdef	ok
+clang:19	16-unreachable	ok
+clang:19	17-stdckdint	ok
+clang:19	18-stdbit	não
+clang:19	19-memset-explicit	não
+clang:19	20-strdup	ok
+clang:19	21-memccpy	ok
+clang:19	22-timegm	ok
+clang:19	23-printf-b	ok
