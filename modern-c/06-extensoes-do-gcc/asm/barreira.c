@@ -1,6 +1,6 @@
 /* Barreira de compilador: __asm__ volatile("" ::: "memory") não gera nenhuma instrução,
  * mas obriga o compilador a reler a memória depois dela. flag não é volatile de propósito. */
-int flag;
+int flag;   /* modificada por uma interrupção; não é volatile, de propósito */
 
 #define barrier() __asm__ volatile("" ::: "memory")
 
