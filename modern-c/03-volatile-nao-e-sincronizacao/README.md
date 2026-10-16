@@ -5,9 +5,9 @@ Embarcados quando for publicado).
 
 | Pasta | O que tem |
 |---|---|
-| `host/` | Programas que rodam no Linux, com um sinal `SIGALRM` a cada 20 µs fazendo o papel da ISR (`isr.h`): incrementos perdidos com `volatile` e sem perda com `atomic` (`rmw.c`), leitura rasgada de um contador de 64 bits e duas correções (`rasgada.c`), ring buffer de um produtor e um consumidor com acquire/release (`ringbuf.h`, `ring.c`); o buffer circular de Felipe Neves (Embarcados, 2016) entre a "ISR" e o código principal (`neves.c`) |
+| `host/` | Programas que rodam no Linux, com um sinal `SIGALRM` a cada 20 µs fazendo o papel da ISR (`isr.h`): incrementos perdidos com `volatile` e sem perda com `atomic` (`rmw.c`), leitura rasgada de um contador de 64 bits e duas correções (`rasgada.c`), ring buffer de um produtor e um consumidor com acquire/release (`ringbuf.h`, `ring.c`); o buffer circular de Felipe Neves (Embarcados, 2016), chamado de `buffer_FN` no artigo, entre a "ISR" e o código principal (`neves.c`) |
 | `arm/` | Arquivos que só compilam para Cortex-M; o teste confere o assembly: o exemplo da abertura do artigo (`abertura.c`), `flags \|= BIT` (`rmw.c`), leitura de 64 bits (`ticks64.c`), reordenação em volta de um `volatile` (`reordena.c`), DMBs por ordem de memória (`ordens.c`), `atomic_fetch_add` no M0 (`fetch_add.c`), o ring buffer no M0 (`ring.c`) e seção crítica com PRIMASK (`secao_critica.c`) |
-| `zephyr/` | App Zephyr com as mesmas experiências (contador `volatile` e `atomic_t`, leitura de 64 bits, buffer do Neves), com a interrupção de um `k_timer` a 10 kHz, para rodar nas placas `qemu_cortex_m0` e `qemu_cortex_m3` |
+| `zephyr/` | App Zephyr com as mesmas experiências (contador `volatile` e `atomic_t`, leitura de 64 bits, buffer_FN), com a interrupção de um `k_timer` a 10 kHz, para rodar nas placas `qemu_cortex_m0` e `qemu_cortex_m3` |
 | `scripts/qemu.sh` | Compila e roda o app no QEMU em dois modos: padrão e `-accel tcg,one-insn-per-tb=on` |
 | `scripts/baixa_neves.sh` | Baixa o `buffer_circ.c`/`.h` de [uLipe/circular_buffer](https://github.com/uLipe/circular_buffer), sempre do commit `4c8f743`, e confere o SHA-256. O código não é redistribuído aqui, porque o repositório original não declara licença; o `make` e o teste chamam o script sozinhos (precisa de rede na primeira vez) |
 | `scripts/teste.sh` | Roda os programas de host e confere o ARM, se houver um GCC para ARM |
@@ -61,17 +61,17 @@ por isso o script usa um diretório de build por modo. Resultado (Zephyr 4.4.99,
   contador volatile: 2850 interrupções, esperado 50002850, obtido 50002850, perdidos 0
   contador atomic_t: 67736 interrupções, esperado 50067736, obtido 50067736, perdidos 0
   leitura de 64 bits: 4160 interrupções, contador andou para trás 0 vezes
-  buffer do Neves: 200000 lidos, 0 fora de ordem, items = 0 (real = 0)
+  buffer_FN: 200000 lidos, 0 fora de ordem, items = 0 (real = 0)
 == qemu_cortex_m0, modo uma-instrucao
   contador volatile: 105313 interrupções, esperado 50105313, obtido 50082105, perdidos 23208
   contador atomic_t: 204446 interrupções, esperado 50204446, obtido 50204446, perdidos 0
   leitura de 64 bits: 100963 interrupções, contador andou para trás 3384 vezes
-  buffer do Neves: 200002 lidos, 0 fora de ordem, items = 0 (real = 112)
+  buffer_FN: 200002 lidos, 0 fora de ordem, items = 0 (real = 112)
 == qemu_cortex_m3, modo padrao (idêntico no modo uma-instrucao)
   contador volatile: 352190 interrupções, esperado 50352190, obtido 50251566, perdidos 100624
   contador atomic_t: 606822 interrupções, esperado 50606822, obtido 50606822, perdidos 0
   leitura de 64 bits: 554564 interrupções, contador andou para trás 0 vezes
-  buffer do Neves: 200001 lidos, 2160 fora de ordem, items = 0 (real = 105)
+  buffer_FN: 200001 lidos, 2160 fora de ordem, items = 0 (real = 105)
 ```
 
 No modo padrão, o QEMU só atende interrupções entre blocos de instruções traduzidos, e um

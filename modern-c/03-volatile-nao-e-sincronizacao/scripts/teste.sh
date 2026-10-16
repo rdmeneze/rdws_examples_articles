@@ -53,9 +53,9 @@ else
 
     r="$(build/neves 100000)"; echo "  $r"
     if grep -q ' 0 fora de ordem' <<< "$r"; then
-        ok "buffer do Neves: nenhuma falha visível (a corrida existe, mas a janela é de uma instrução)"
+        ok "buffer_FN: nenhuma falha visível (a corrida existe, mas a janela é de uma instrução)"
     else
-        ok "buffer do Neves: a corrida apareceu nesta execução"
+        ok "buffer_FN: a corrida apareceu nesta execução"
     fi
 fi
 
@@ -103,9 +103,9 @@ else
     if scripts/baixa_neves.sh "$neves" > /dev/null; then
         r="$("$ARM_CC" -std=c11 -O2 -mcpu=cortex-m4 -mthumb -S "$neves/buffer_circ.c" -o - | corpo buffer_retrieve | tr '\n' ' ')"
         if grep -qE 'ldr .*subs? .*str' <<< "$r"; then
-            ok "cortex-m4: items-- do buffer do Neves vira ldr/sub/str"
+            ok "cortex-m4: items-- do buffer_FN vira ldr/sub/str"
         else
-            echo "  $r"; falha "cortex-m4: items-- do buffer do Neves"
+            echo "  $r"; falha "cortex-m4: items-- do buffer_FN"
         fi
     else
         falha "baixar o buffer do Neves"

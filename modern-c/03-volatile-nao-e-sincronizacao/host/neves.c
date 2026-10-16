@@ -47,7 +47,7 @@ int main(int argc, char **argv)
     isr_desliga();
 
     unsigned real = (buf.wr_ptr - buf.rd_ptr + BUFFER_SIZE) % BUFFER_SIZE;
-    printf("buffer do Neves: %lu lidos, %lu fora de ordem, items = %u (real = %u), %d descartados\n",
+    printf("buffer_FN: %lu lidos, %lu fora de ordem, items = %u (real = %u), %d descartados\n",
            lidos, fora_de_ordem, buf.items, real, (int)descartados);
     return 0;
 }

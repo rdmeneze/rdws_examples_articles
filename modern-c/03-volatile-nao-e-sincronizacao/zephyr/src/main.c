@@ -106,7 +106,7 @@ static void buffer_neves(void)
 
     unsigned real = (buf.wr_ptr - buf.rd_ptr + BUFFER_SIZE) % BUFFER_SIZE;
 
-    printk("buffer do Neves: %u lidos, %u fora de ordem, items = %u (real = %u)\n",
+    printk("buffer_FN: %u lidos, %u fora de ordem, items = %u (real = %u)\n",
            lidos, fora_de_ordem, buf.items, real);
 }
 
