@@ -6,7 +6,7 @@ CFLAGS ?= -O2
 WARN   := -Wall -Wextra
 BUILD  := build
 
-PROGS := $(BUILD)/rmw $(BUILD)/rasgada $(BUILD)/ring $(BUILD)/neves
+PROGS := $(BUILD)/rmw $(BUILD)/torn_read $(BUILD)/ring $(BUILD)/neves
 NEVES := $(BUILD)/neves-src
 
 .PHONY: all run teste clean
@@ -20,9 +20,9 @@ $(BUILD)/%: host/%.c host/isr.h host/ringbuf.h
 run: all
 	$(BUILD)/rmw volatile
 	$(BUILD)/rmw atomic
-	$(BUILD)/rasgada ingenua
-	$(BUILD)/rasgada repete
-	$(BUILD)/rasgada secao
+	$(BUILD)/torn_read ingenua
+	$(BUILD)/torn_read repete
+	$(BUILD)/torn_read secao
 	$(BUILD)/ring
 	$(BUILD)/neves
 

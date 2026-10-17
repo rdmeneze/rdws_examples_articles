@@ -5,7 +5,7 @@ Embarcados quando for publicado).
 
 | Pasta | O que tem |
 |---|---|
-| `host/` | Programas que rodam no Linux, com um sinal `SIGALRM` a cada 20 µs fazendo o papel da ISR (`isr.h`): incrementos perdidos com `volatile` e sem perda com `atomic` (`rmw.c`), leitura rasgada de um contador de 64 bits e duas correções (`rasgada.c`), ring buffer de um produtor e um consumidor com acquire/release (`ringbuf.h`, `ring.c`); o buffer circular de Felipe Neves (Embarcados, 2016), chamado de `buffer_FN` no artigo, entre a "ISR" e o código principal (`neves.c`) |
+| `host/` | Programas que rodam no Linux, com um sinal `SIGALRM` a cada 20 µs fazendo o papel da ISR (`isr.h`): incrementos perdidos com `volatile` e sem perda com `atomic` (`rmw.c`), *torn read* de um contador de 64 bits e duas correções (`torn_read.c`), ring buffer de um produtor e um consumidor com acquire/release (`ringbuf.h`, `ring.c`); o buffer circular de Felipe Neves (Embarcados, 2016), chamado de `buffer_FN` no artigo, entre a "ISR" e o código principal (`neves.c`) |
 | `arm/` | Arquivos que só compilam para Cortex-M; o teste confere o assembly: o exemplo da abertura do artigo (`abertura.c`), `flags \|= BIT` (`rmw.c`), leitura de 64 bits (`ticks64.c`), reordenação em volta de um `volatile` (`reordena.c`), DMBs por ordem de memória (`ordens.c`), `atomic_fetch_add` no M0 (`fetch_add.c`), o ring buffer no M0 (`ring.c`) e seção crítica com PRIMASK (`secao_critica.c`) |
 | `zephyr/` | App Zephyr com as mesmas experiências (contador `volatile` e `atomic_t`, leitura de 64 bits, buffer_FN), com a interrupção de um `k_timer` a 10 kHz, para rodar nas placas `qemu_cortex_m0` e `qemu_cortex_m3` |
 | `scripts/qemu.sh` | Compila e roda o app no QEMU em dois modos: padrão e `-accel tcg,one-insn-per-tb=on` |
@@ -79,4 +79,4 @@ No modo padrão, o QEMU só atende interrupções entre blocos de instruções t
 instrução por bloco, as falhas aparecem. A `qemu_cortex_m3` liga `-icount shift=6` na
 configuração da placa, o que faz o timer disparar em um ponto exato da contagem de instruções,
 mesmo no meio de um bloco: as falhas aparecem nos dois modos, com números idênticos a cada
-execução. A leitura de 64 bits não rasga no M3 porque ali ela é um único `LDRD`.
+execução. A leitura de 64 bits não sofre *torn read* no M3 porque ali ela é um único `LDRD`.

@@ -39,13 +39,13 @@ else
     [ "$(perdidos "$r")" -eq 0 ] && ok "atomic não perde nada" || falha "atomic perdeu incrementos"
 
     for tentativa in 1 2 3; do
-        r="$(build/rasgada ingenua)"; [ "$(recuos "$r")" -gt 0 ] && break
+        r="$(build/torn_read ingenua)"; [ "$(recuos "$r")" -gt 0 ] && break
     done
     echo "  $r"
-    [ "$(recuos "$r")" -gt 0 ] && ok "leitura ingênua rasga" || falha "leitura ingênua não rasgou em 3 tentativas"
+    [ "$(recuos "$r")" -gt 0 ] && ok "leitura ingênua sofre torn read" || falha "leitura ingênua sem torn read em 3 tentativas"
     for modo in repete secao; do
-        r="$(build/rasgada $modo)"; echo "  $r"
-        [ "$(recuos "$r")" -eq 0 ] && ok "leitura '$modo' não rasga" || falha "leitura '$modo' rasgou"
+        r="$(build/torn_read $modo)"; echo "  $r"
+        [ "$(recuos "$r")" -eq 0 ] && ok "leitura '$modo' sem torn read" || falha "leitura '$modo' teve torn read"
     done
 
     r="$(build/ring)"; echo "  $r"

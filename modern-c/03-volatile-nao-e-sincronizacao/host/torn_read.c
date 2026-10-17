@@ -1,6 +1,6 @@
-/* Leitura rasgada de um contador de 64 bits num processador de 32 bits, emulada no host com
- * duas metades lidas uma de cada vez (como faz o Cortex-M0).
- * Uso: rasgada ingenua | rasgada repete | rasgada secao */
+/* Torn read (leitura feita em pedaços) de um contador de 64 bits num processador de 32 bits,
+ * emulada no host com duas metades lidas uma de cada vez (como faz o Cortex-M0).
+ * Uso: torn_read ingenua | torn_read repete | torn_read secao */
 #define _POSIX_C_SOURCE 200809L
 #include <stdint.h>
 #include <stdio.h>
