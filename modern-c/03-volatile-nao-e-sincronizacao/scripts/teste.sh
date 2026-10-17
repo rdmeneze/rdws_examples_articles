@@ -152,6 +152,15 @@ else
     fi
     rm -rf "$tmp"
 
+    r0="$(asm cortex-m0 arm/lock_free.c | corpo tarefa | tr '\n' ' ')"
+    r4="$(asm cortex-m4 arm/lock_free.c | corpo tarefa | tr '\n' ' ')"
+    if grep -q 'cpsid' <<< "$r0" && grep -q 'ldrex' <<< "$r4" \
+       && "$ARM_CC" -std=c11 -O2 -mcpu=cortex-m0 -mthumb arm/lock_free.c -o /dev/null; then
+        ok "ATOMIC_INT_LOCK_FREE decide: seção crítica no M0, ldrex/strex no M4, e linka nos dois"
+    else
+        echo "  m0: $r0"; echo "  m4: $r4"; falha "lock_free.c"
+    fi
+
     r="$(asm cortex-m0 arm/secao_critica.c | corpo le_ticks | tr '\n' ' ')"
     grep -q 'mrs.*cpsid.*msr' <<< "$r" && ok "cortex-m0: seção crítica com mrs/cpsid ... msr" || { echo "  $r"; falha "seção crítica"; }
 fi
