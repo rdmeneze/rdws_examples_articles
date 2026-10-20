@@ -1,6 +1,6 @@
 # Exemplo: CoAP sobre DTLS com PSK
 
-Acompanha o artigo [01-coap-dtls-psk](Colocar o link do artigo no embarcados).
+Acompanha o artigo [CoAP sobre DTLS com PSK no Zephyr: do sensor ao servidor](https://embarcados.com.br/coap-sobre-dtls-com-psk-no-zephyr-do-sensor-ao-servidor/), publicado no Embarcados.
 
 | Pasta | O que é | Estado |
 |---|---|---|

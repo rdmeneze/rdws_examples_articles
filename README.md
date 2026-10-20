@@ -7,7 +7,7 @@ um exemplo mínimo e completo, que compila e roda sozinho.
 
 | Pasta | Artigo | O que tem |
 |---|---|---|
-| [coap-dtls-psk](coap-dtls-psk/) | CoAP sobre DTLS com PSK no Zephyr: do sensor ao servidor | Servidor CoAP/DTLS em C (libcoap), cliente Zephyr com mbedTLS direto (`native_sim`) e script de teste |
+| [coap-dtls-psk](coap-dtls-psk/) | [CoAP sobre DTLS com PSK no Zephyr: do sensor ao servidor](https://embarcados.com.br/coap-sobre-dtls-com-psk-no-zephyr-do-sensor-ao-servidor/) | Servidor CoAP/DTLS em C (libcoap), cliente Zephyr com mbedTLS direto (`native_sim`) e script de teste |
 | [modern-c/01-c99-a-c23](modern-c/01-c99-a-c23/) | 25 anos de evolução da linguagem C: de C99 a C23 | Um programa por recurso de C99, C11 e C23, com Makefile; casos que devem falhar e teste automático |
 | [modern-c/02-c23-em-sistemas-embarcados](modern-c/02-c23-em-sistemas-embarcados/) | Quanto do C23 já pode ser usado em sistemas embarcados? | Um teste por recurso do C23 e scripts que montam a matriz recurso × toolchain (GCC, Clang, Arm GNU Toolchain, Zephyr SDK) |
 | [modern-c/03-volatile-nao-e-sincronizacao](modern-c/03-volatile-nao-e-sincronizacao/) | volatile não é sincronização: usando atomics do C11 em firmware | Incrementos perdidos, leitura rasgada e ring buffer no host (um sinal como ISR) e no QEMU (app Zephyr nas placas qemu_cortex_m0/m3); assembly e link no Cortex-M0/M4 |
