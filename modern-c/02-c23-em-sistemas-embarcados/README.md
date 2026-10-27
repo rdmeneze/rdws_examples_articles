@@ -1,7 +1,7 @@
 # Exemplos: quanto do C23 já pode ser usado em sistemas embarcados?
 
-Acompanha o artigo "Quanto do C23 já pode ser usado em sistemas embarcados?" (link do
-Embarcados quando for publicado). Mede, recurso por recurso, o que cada toolchain aceita.
+Acompanha o artigo [Quanto do C23 já pode ser usado em sistemas embarcados?](https://embarcados.com.br/quanto-do-c23-ja-pode-ser-usado-em-sistemas-embarcados/),
+publicado no Embarcados. Mede, recurso por recurso, o que cada toolchain aceita.
 
 | Pasta | O que tem |
 |---|---|

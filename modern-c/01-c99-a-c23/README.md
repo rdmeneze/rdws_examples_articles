@@ -1,7 +1,7 @@
 # Exemplos: 25 anos de evolução da linguagem C, de C99 a C23
 
-Acompanha o artigo "25 anos de evolução da linguagem C: de C99 a C23" (link do Embarcados
-quando for publicado). Cada arquivo é um programa pequeno, que compila sozinho e imprime o
+Acompanha o artigo [25 anos de evolução da linguagem C: de C99 a C23](https://embarcados.com.br/25-anos-de-evolucao-da-linguagem-c-de-c99-a-c23/),
+publicado no Embarcados. Cada arquivo é um programa pequeno, que compila sozinho e imprime o
 que o recurso faz. Os trechos citados no artigo são idênticos aos destes arquivos.
 
 | Pasta | Padrão | O que tem | Estado |
