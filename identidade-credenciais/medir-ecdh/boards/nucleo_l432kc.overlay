@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2026 Rafael Dias
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+/* O RNG vem desabilitado nesta placa. A saída Q do PLL está em 160 MHz, fora do limite do
+ * periférico, então o clock vem do HSI48.
+ */
+&clk_hsi48 {
+	status = "okay";
+};
+
+&rng {
+	clocks = <&rcc STM32_CLOCK(AHB2, 18)>,
+		 <&rcc STM32_SRC_HSI48 CLK48_SEL(0)>;
+	status = "okay";
+};

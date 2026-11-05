@@ -1,7 +1,7 @@
 # Exemplos: extensões do GCC que facilitam a vida no firmware
 
-Acompanha o artigo "Extensões do GCC que facilitam a vida no firmware" (link do Embarcados
-quando for publicado). Cada arquivo é um programa pequeno, compilado com `-std=gnu17`.
+Acompanha o artigo [Extensões do GCC que facilitam a vida no firmware](https://embarcados.com.br/extensoes-do-gcc-que-facilitam-a-vida-no-firmware/),
+publicado no Embarcados. Cada arquivo é um programa pequeno, compilado com `-std=gnu17`.
 
 | Pasta | O que tem |
 |---|---|
